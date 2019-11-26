@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Release Notes | Couchbase Docs (Tutorials)</title>
+    <link rel="canonical" href="https://github-id.github.io/DOC-5872/sync-gateway/2.7/release-notes.html">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="schema.dcterms" href="https://purl.org/dc/terms/">
+    <meta name="dcterms.subject" content="sync-gateway">
+    <meta name="dcterms.identifier" content="2.7">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar" id="topbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://www.couchbase.com"><img src="../../_/img/logo.svg" alt="Couchbase"></a>
+        <button class="navbar-burger" data-target="topbar-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div id="topbar-menu" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown">
+            <a class="navbar-link" href="https://github-id.github.io/DOC-5872">Docs</a>
+            <div class="navbar-dropdown explore">
+              <div class="title">Couchbase Documentation Overview</div>
+              <div class="cols">
+                <ul>
+                  <li class="heading"><a href="#">Server</a></li>
+                  <li><a href="../../server//n1ql/n1ql-language-reference/index.html">N1QL</a></li>
+                  <li><a href="../../server//fts/full-text-intro.html">Full Text Search</a></li>
+                  <li><a href="../../server//analytics/introduction.html">Analytics</a></li>
+                  <li><a href="../../server//eventing/eventing-overview.html">Eventing</a></li>
+                  <li><a href="#">Autonomous Operator</a></li>
+                </ul>
+                <ul>
+                  <li class="heading">Mobile</li>
+                  <li><a href="../../couchbase-lite/2.6/index.html">Lite</a></li>
+                  <li><a href="index.html">Sync Gateway</a></li>
+                </ul>
+                <ul class="two-cols">
+                  <li class="heading"><a href="../../server//sdk/overview.html">SDKs</a></li>
+                  <li><a href="#">C</a></li>
+                  <li><a href="#">.NET</a></li>
+                  <li><a href="#">Go</a></li>
+                  <li><a href="#">Java</a></li>
+                  <li><a href="#">Node.js</a></li>
+                  <li><a href="#">PHP</a></li>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Scala</a></li>
+                </ul>
+                <ul>
+                  <li class="heading"><a href="../../server//connectors/intro.html">Connectors</a></li>
+                  <li><a href="#">Elasticsearch</a></li>
+                  <li><a href="../../server//connectors/hadoop-1.2/hadoop.html">Hadoop</a></li>
+                  <li><a href="#">Kafka</a></li>
+                  <li><a href="#">Spark</a></li>
+                  <li><a href="#">Talend</a></li>
+                  <li><a href="../../server//connectors/odbc-jdbc-drivers.html">ODBC/JDBC</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown">
+            <a class="navbar-link component" href="index.html"><span class="title">Sync Gateway</span> <span class="version">2.7</span></a>
+            <div class="navbar-dropdown versions">
+              <div class="cols">
+                <ul>
+                  <li><a class="navbar-item" href="../2.6/release-notes.html">Sync Gateway 2.6</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a class="btn red-btn" href="https://www.couchbase.com/downloads">Downloads</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body container">
+<nav class="nav">
+<div class="nav-menu">
+<ul class="nav-list">
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Introduction</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="index.html">What&#8217;s New</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="getting-started.html">Getting Started</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="data-modeling.html">Data Modeling</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Access Control</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="users-and-roles.html">Users and Roles</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="authentication.html">Authentication</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="data-routing.html">Data Routing</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="read-access.html">Read Access</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="write-security.html">Write Security</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="sync-function-api.html">Sync Function API</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Learn</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="config-properties.html">Configuration File</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="command-line-options.html">CLI</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="shared-bucket-access.html">Mobile-Web Data Sync</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="managing-tombstones.html">Tombstones</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="indexing.html">Indexing</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="server-integration.html">Webhooks and Changes Feed</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="resolving-conflicts.html">Resolving Conflicts</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="integrating-external-stores.html">Integrating External Stores</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="running-replications.html">Inter-cluster Replication</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="rest-api-client.html">REST API Client</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Manage</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="logging.html">Logging</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="stats-monitoring.html">Stats Monitoring</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="sgcollect-info.html">SGCollect Info</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="deployment.html">Deployment</a>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Sync Gateway on Kubernetes</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <span class="nav-line">
+    <a class="nav-link" href="kubernetes/deploy-cluster.html">Deploy a Cluster</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-line">
+    <a class="nav-link" href="kubernetes/manage-cluster.html">Manage a Cluster</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="upgrade.html">Upgrade</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="security.html">Security</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="load-balancer.html">Load Balancer</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="database-offline.html">Taking Databases Offline and Online</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="os-level-tuning.html">OS Level Tuning</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">API References</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="rest-api.html">Public REST API</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="admin-rest-api.html">Admin REST API</a>
+    </span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-path is-active" data-depth="0">
+    <span class="nav-line">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Release Notes &amp; Compatibility</span>
+    </span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page is-active" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="supported-os.html">Supported OS</a>
+    </span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-line">
+    <a class="nav-link" href="compatibility-matrix.html">Compatibility Matrix</a>
+    </span>
+  </li>
+</ul>
+  </li>
+</ul>
+</div>
+</nav>
+<aside class="toc sidebar">
+  <div class="toc-menu"></div>
+</aside>
+<main class="article" data-ceiling="topbar">
+  <div class="article-header">
+<button class="nav-control"></button>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">Sync Gateway</a></li>
+    <li class="crumb">Release Notes &amp; Compatibility</li>
+    <li class="crumb"><a href="release-notes.html">Release Notes</a></li>
+  </ul>
+</nav>
+<div class="tools" role="navigation">
+  <ul>
+    <li class="tool edit"><a href="file:///Users/jamesnocentini/Documents/couchbase/sg/sg-2.7/modules/ROOT/pages/release-notes.adoc" title="Edit Page" target="_blank" rel="noopener">Edit</a></li>
+  </ul>
+</div>
+  </div>
+<article class="doc">
+<h1 class="page">Release Notes</h1>
+<div class="sect1">
+<h2 id="2-7-0"><a class="anchor" href="#2-7-0"></a>2.7.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>New Features</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default behavior of <code>import_docs</code> has changed (see <a href="config-properties.html#databases-foo_db-import_docs" class="page">databases.$db.import_docs</a>).</p>
+<div class="paragraph">
+<p>This will provide the flexibility for "import heavy" use case users to be able to isolate the import nodes from the internet/client-facing nodes.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-6-0"><a class="anchor" href="#2-6-0"></a>2.6.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Deprecated Configs</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The following configuration properties are being deprecated in this release and will be removed in a future release:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>adminUI</code></p>
+</li>
+<li>
+<p><code>configServer</code></p>
+</li>
+<li>
+<p><code>databases.$db.feed_type</code></p>
+</li>
+<li>
+<p><code>pretty</code></p>
+</li>
+<li>
+<p><code>profileInterface</code></p>
+</li>
+<li>
+<p><code>log</code> (superseded by <code>logging</code>)</p>
+</li>
+<li>
+<p><code>logFilePath</code> (superseded by <code>logging.log_file_path</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>walrus</code> value on the <code>databases.$db.bucket</code> property is being deprecated. Sync Gateway instances using <code>walrus</code> for development should connect to a running instance of Couchbase Server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>New Features</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cache Enhancements</p>
+<div class="paragraph">
+<p><a href="index.html" class="page">Read more</a></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Enhancements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-260"><strong>CBG-260</strong></a> Add configurable minimum TLS version</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-220"><strong>CBG-220</strong></a> Limit total size of rotated logs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixed in this Release</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-461"><strong>CBG-461</strong></a> Cobalt - cache enhancements- 404 error while requesting doc from the second sgw node</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-458"><strong>CBG-458</strong></a> cobalt - error count stats does not get incremented</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-455"><strong>CBG-455</strong></a> Inconsistent delta sync behavior regarding deletion</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-449"><strong>CBG-449</strong></a> _removed entry not sent with delta sync</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-434"><strong>CBG-434</strong></a> Build 2.6.0-104: Existing SG WRITE test with 100% RYOW shows suboptimal throughout in 4 node cluster compared to single node</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-428"><strong>CBG-428</strong></a> Packaged SG config tries connecting to couchbase://localhost instead of walrus</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-424"><strong>CBG-424</strong></a> Create conflict throws 400 error</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-406"><strong>CBG-406</strong></a> sgw fails to start with ssl enabled</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-373"><strong>CBG-373</strong></a> SGW shows wrong version number</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-370"><strong>CBG-370</strong></a> Sync gateway fails to start</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-364"><strong>CBG-364</strong></a> Odd SG Installation errors</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-363"><strong>CBG-363</strong></a> Return HTTP 413 when server rejects document due to size</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-362"><strong>CBG-362</strong></a> Inconsistent handling between views and N1QL for tombstone removals</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-357"><strong>CBG-357</strong></a> GoCB Bucket Incr amt=0 logic not taking 'def' into account</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-342"><strong>CBG-342</strong></a> GoCB Bucket Incr amt=0 logic not handling errors correctly</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-324"><strong>CBG-324</strong></a> Blip messages double-tagging user for redaction</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-321"><strong>CBG-321</strong></a> Improve sg-replicate logging integration</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-319"><strong>CBG-319</strong></a> Exit on error when retrieving ClusterCompatibility</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-309"><strong>CBG-309</strong></a> Don&#8217;t log expected REST errors to sg_error.log</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-306"><strong>CBG-306</strong></a> Avoid panics as an error handling mechanism</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-288"><strong>CBG-288</strong></a> Investigate TestN1qlQuery failures</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-286"><strong>CBG-286</strong></a> SUBDOC operation attempted when server doesn&#8217;t support them</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-284"><strong>CBG-284</strong></a> Retry loops for bucket update ops have no backoff and no max retry count</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-280"><strong>CBG-280</strong></a> Syncgateway doesn&#8217;t import all documents while importing 50M docs ( build 2.1.3-4)</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-279"><strong>CBG-279</strong></a> go-blip leaks nextFrameToSend goroutine under aborted multi-frame send</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-265"><strong>CBG-265</strong></a> Post Upgrade fails to remove 2.0 era design docs</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-264"><strong>CBG-264</strong></a> Post Upgrade "fails" in a cluster with no query nodes</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-253"><strong>CBG-253</strong></a> Unused bulk_docs reserved sequences may not be released</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-225"><strong>CBG-225</strong></a> Unresponsive REST API on startup</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-221"><strong>CBG-221</strong></a> Admin/User views cannot handle both xattr and non-xattr simultaneously</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-189"><strong>CBG-189</strong></a> Compact() shouldn&#8217;t trigger import errors</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-159"><strong>CBG-159</strong></a> CouchbaseServerVersion should use clusterCompatibility version</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Known Issues</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-463"><strong>CBG-463</strong></a> Potential feedback loop when replicating large attachments</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-317"><strong>CBG-317</strong></a> network errors while getting bulk get with multi channel with server ssl enabled</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-502"><strong>CBG-502</strong></a> x.509 certificate authentication broken due to deprecated CertificateAuthenticator</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-5-1"><a class="anchor" href="#2-5-1"></a>2.5.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Bugs</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-430"><strong>CBG-430</strong></a> Inconsistent handling between views and N1QL for tombstone removals.</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-432"><strong>CBG-432</strong></a> GoCB Bucket Incr amt=0 logic not handling errors correctly.</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-450"><strong>CBG-450</strong></a> _removed entry not sent with delta sync</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-429"><strong>CBG-429</strong></a> Verify attachment length and digest when downloading attachment</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-299"><strong>CBG-299</strong></a> Avoid unnecessary 'too late to disable compression' log warning</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-300"><strong>CBG-300</strong></a> go-blip leaks nextFrameToSend goroutine under aborted multi-frame send</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-301"><strong>CBG-301</strong></a> Avoid leaking goroutines on blip replication close</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-244"><strong>CBG-244</strong></a> Reduce disk space requirements when running sgcollect</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-284"><strong>CBG-284</strong></a> Retry loops for bucket update ops have no backoff and no max retry count</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-431"><strong>CBG-431</strong></a> Upgrade gocb to 1.6.1 to pick up GOCBC-413</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-318"><strong>CBG-318</strong></a> SUBDOC operation attempted when server doesn&#8217;t support them</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Known Issues</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-502"><strong>CBG-502</strong></a> x.509 certificate authentication broken due to deprecated CertificateAuthenticator</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-5-0"><a class="anchor" href="#2-5-0"></a>2.5.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Deprecated Configs</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The following configuration properties are being deprecated in this release and will be removed in a future release:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>adminUI</code></p>
+</li>
+<li>
+<p><code>configServer</code></p>
+</li>
+<li>
+<p><code>databases.$db.feed_type</code></p>
+</li>
+<li>
+<p><code>pretty</code></p>
+</li>
+<li>
+<p><code>profileInterface</code></p>
+</li>
+<li>
+<p><code>log</code> (superseded by <code>logging</code>)</p>
+</li>
+<li>
+<p><code>logFilePath</code> (superseded by <code>logging.log_file_path</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>walrus</code> value on the <code>databases.$db.bucket</code> property is being deprecated. Sync Gateway instances using <code>walrus</code> for development should connect to a running instance of Couchbase Server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Performance Improvements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3662"><strong>#3662</strong></a> Collate high-volume logs for improved throughput</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3667"><strong>#3667</strong></a> Move _attachments metadata to _sync</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3766"><strong>#3766</strong></a> Independent timing for skipped sequence processing and cache age-out process</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3823"><strong>#3823</strong></a> Avoid CPU spikes when abandoning skipped sequences</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3862"><strong>#3862</strong></a> Improve channel query queueing</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Enhancements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3558"><strong>#3558</strong></a> Initialize cache after DCP start</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3609"><strong>#3609</strong></a> Add validation to limit log file max_size</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3677"><strong>#3677</strong></a> Make bcrypt cost configurable</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3791"><strong>#3791</strong></a> sgcollect_info: Proxy server support using --upload_proxy</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3792"><strong>#3792</strong></a> Ensure consistent use of http.DefaultTransport</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3798"><strong>#3798</strong></a> Report parameters on N1QL errors</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3815"><strong>#3815</strong></a> Include db and handler context in all db-specific logging</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3833"><strong>#3833</strong></a> CouchbaseServerVersion should use cluster_compat_version</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-268"><strong>CBG-268</strong></a> Limit DCP checkpoint persistency frequency</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-247"><strong>CBG-247</strong></a> Reduce CPU associated with large skipped sequence queue</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-233"><strong>CBG-233</strong></a> Improve efficiency of pending sequences processing</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Bugs</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3414"><strong>#3414</strong></a> auth.Save() should be CAS safe</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3783"><strong>#3783</strong></a> Large Number Handled Incorrectly</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/MB-32044"><strong>MB-32044</strong></a> cbdatasource workers retry removed nodes indefinitely</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3838"><strong>#3838</strong></a> Failed resync doesn&#8217;t revert db state to offline</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3839"><strong>#3839</strong></a> n1ql query timeout should be set at both bucket and cluster level</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3872"><strong>#3872</strong></a> Channel cache prepend can fail for some seq, validFrom combinations</p>
+</li>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/3898"><strong>#3898</strong></a> Avoid nested read locks on BucketLock</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-282"><strong>CBG-282</strong></a> Panic when putting document with duplicate non-imported doc ID</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-278"><strong>CBG-278</strong></a> Sync Gateway panic when stopping 2.0 pull replication with attachments</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-230"><strong>CBG-230</strong></a> <code>_changes</code> with <code>include_docs=true</code> errors on <code>_user</code> pseudo docs</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-197"><strong>CBG-197</strong></a> Change default console logging behaviour</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-234"><strong>CBG-234</strong></a> Prevent N1QL injection in Sync Gateway via <code>_all_docs</code> with <code>startkey</code> and <code>endkey</code> querystring options</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Known Issues</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/couchbase/sync_gateway/issues/1264"><strong>#1264</strong></a> Sync Gateway memory usage can climb continously is scenarios with ever increasing numbers of channels</p>
+</li>
+<li>
+<p><a href="https://issues.couchbase.com/browse/CBG-394"><strong>CBG-394</strong></a> Upgrade to <code>shared_bucket_access</code> with GSI can cause missed mutations</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <div class="col">
+        <div class="footer-logo">
+          <a href="https://www.couchbase.com" class="icon">
+            <img src="../../_/img/logo.svg" alt="Couchbase">
+          </a>
+        </div>
+        <div class="contact">
+          <p class="address">3250 Olcott Street
+Santa Clara, CA 95054
+United States</p>
+          <a href="https://www.couchbase.com/contact" class="btn white-btn">Contact Us</a>
+          <a class="tel" href="tel:1-650-417-7500">1-650-417-7500</a>
+        </div>
+      </div>
+      <div class="col">
+        <ul>
+          <li><span class="heading">Company</span></li>
+          <li><a href="https://www.couchbase.com/about">About</a></li>
+          <li><a href="https://www.couchbase.com/leadership">Leadership</a></li>
+          <li><a href="https://www.couchbase.com/news-and-press-releases">News &amp; Press</a></li>
+          <li><a href="https://www.couchbase.com/careers">Careers</a></li>
+          <li><a href="https://www.couchbase.com/resources/events">Events</a></li>
+          <li><a href="https://www.couchbase.com/contact">Contact Us</a></li>
+          <li><a href="https://www.couchbase.com/request-pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><span class="heading">Support</span></li>
+          <li><a href="https://developer.couchbase.com" target="_blank" rel="noopener">Developer Portal</a></li>
+          <li><a href="https://docs.couchbase.com" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="https://forums.couchbase.com" target="_blank" rel="noopener">Forums</a></li>
+          <li><a href="https://www.couchbase.com/services">Professional Services</a></li>
+          <li><a href="https://support.couchbase.com" target="_blank" rel="noopener">Support Login</a></li>
+          <li><a href="https://learn.couchbase.com/store" target="_blank" rel="noopener">Training</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li><span class="heading">Quicklinks</span></li>
+          <li><a href="https://blog.couchbase.com" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.couchbase.com/downloads">Downloads</a></li>
+          <li><a href="https://www.couchbase.com/get-started-developing-nosql">Get Started</a></li>
+          <li><a href="https://learn.couchbase.com/store?utf8=%E2%9C%93&ss=1&ct=78327&commit=Filter" target="_blank" rel="noopener">Online Training</a></li>
+          <li><a href="https://www.couchbase.com/resources">Resources</a></li>
+          <li><a href="https://www.couchbase.com/nosql-resources/why-nosql">Why NoSQL</a></li>
+          <li><a href="https://www.couchbase.com/resources/security">Security</a></li>
+          <li><a href="https://www.couchbase.com/resources/gdpr">GDPR</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="social-icons">
+          <li>
+            <a href="https://www.facebook.com/Couchbase" class="icon">
+              <svg width="50px" height="50px" viewBox="26.363 116.363 560.215 560.215"><path d="m586.58 209.58c0-48.96-44.252-93.212-93.212-93.212h-373.79c-48.96 0-93.212 44.252-93.212 93.212v373.79c0 48.96 44.252 93.212 93.212 93.212h186.42v-211.85h-68.732v-93.212h68.732v-36.72c0-63.083 47.077-119.58 105.45-119.58h75.323v93.212h-75.323c-8.474 0-17.889 10.357-17.889 25.422v37.662h93.212v93.212h-93.212v211.85h99.803c48.96 0 93.212-44.252 93.212-93.212v-373.79z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/couchbase" class="icon">
+              <svg width="50px" height="50px" viewBox="32.012 176.622 542.326 437.815"><path d="m574.34 227.46c-19.772 8.474-41.428 15.065-64.025 17.889 22.597-14.123 40.486-35.778 48.96-61.2-21.655 13.182-45.194 21.655-70.615 27.305-20.714-21.655-48.96-34.837-80.972-34.837-61.2 0-111.1 49.902-111.1 111.1 0 8.474 0.942 16.948 2.825 25.422-92.271-5.649-174.18-49.902-229.74-117.69-9.415 16.006-15.065 35.778-15.065 55.551 0 38.603 19.772 72.498 49.902 92.271-17.889-0.942-35.778-5.649-50.843-14.123v0.942c0 53.668 38.603 98.862 89.446 109.22-9.415 2.825-18.831 3.766-29.188 3.766-7.532 0-14.123-0.942-20.714-1.883 14.123 44.252 55.551 76.265 103.57 77.206-37.662 30.129-85.68 48.018-138.41 48.018-9.415 0-17.889-0.941-26.363-1.883 48.96 32.012 107.34 49.902 170.42 49.902 204.31 0 316.36-169.48 316.36-316.36v-14.123c21.656-14.125 40.487-33.897 55.551-56.494z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/couchbase" class="icon">
+              <svg width="50px" height="50px" viewBox="31.071 119.188 539.537 540.443"><path d="m531.97 119.19h-461.35c-21.655 0-39.545 16.948-39.545 38.603v463.24c0 21.655 17.889 38.603 39.545 38.603h460.41c21.655 0 39.545-16.948 39.545-38.603v-463.24c0.942-21.656-16.947-38.603-38.603-38.603zm-337.07 451.94h-81.914v-243.86h81.914v243.86zm-40.486-276.81c-28.246 0-46.135-18.831-46.135-42.369s17.889-42.369 46.135-42.369 45.194 17.889 45.194 42.369c0.942 23.538-16.948 42.369-45.194 42.369zm335.19 276.81h-81.914v-129.93c0-32.954-12.24-55.551-41.428-55.551-22.597 0-35.778 15.065-41.428 30.129-1.883 5.649-2.825 12.24-2.825 19.772v136.52h-81.914s0.942-221.26 0-243.86h81.914v34.837c11.298-16.948 30.129-40.486 73.44-40.486 53.668 0 94.154 34.837 94.154 110.16l1e-3 138.41zm-168.54-208.08s0.941-0.941 0 0z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-terms">
+      <span>2018 COUCHBASE All rights reserved.</span>
+      <a href="https://www.couchbase.com/privacy-policy">Privacy Policy</a>
+      <a href="https://www.couchbase.com/terms-of-use">Terms of Use</a>
+      <a href="https://www.couchbase.com/cookie-policy">Cookie Policy</a>
+      <a href="https://info.couchbase.com/unsubscribe-or-manage-preferences.html" target="_blank" rel="noopener">Marketing Preference Center</a>
+    </div>
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
